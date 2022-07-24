@@ -587,7 +587,7 @@
     },
     "startupoverlay": {
         "policyText": " ",
-        "title": "{{app}} needs to use your microphone and camera."
+        "title": "{{app}} accessing camera..."
     },
     "suspendedoverlay": {
         "rejoinKeyTitle": "Rejoin",

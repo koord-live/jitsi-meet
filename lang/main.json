@@ -1012,9 +1012,9 @@
         "surprised": "Surprised"
     },
     "startupoverlay": {
-        "genericTitle": "The meeting needs to use your microphone and camera.",
+        "genericTitle": "Accessing camera...",
         "policyText": " ",
-        "title": "{{app}} needs to use your microphone and camera."
+        "title": "{{app}} accessing camera..."
     },
     "suspendedoverlay": {
         "rejoinKeyTitle": "Rejoin",
