@@ -98,11 +98,13 @@ export function isMultipleAudioInputSupported(transport: Object) {
  * @returns {Promise}
  */
 export function setAudioInputDevice(transport: Object, label: string, id: string) {
-    return _setDevice(transport, {
-        id,
-        kind: 'audioinput',
-        label
-    });
+    // don't do anything
+    return {};
+    // return _setDevice(transport, {
+    //     id,
+    //     kind: 'audioinput',
+    //     label
+    // });
 }
 
 /**
@@ -115,11 +117,14 @@ export function setAudioInputDevice(transport: Object, label: string, id: string
  * @returns {Promise}
  */
 export function setAudioOutputDevice(transport: Object, label: string, id: string) {
-    return _setDevice(transport, {
-        id,
-        kind: 'audiooutput',
-        label
-    });
+    // return _setDevice(transport, {
+    //     id,
+    //     kind: 'audiooutput',
+    //     label
+    // });
+
+    // don't do anything
+    return {};
 }
 
 /**
@@ -131,11 +136,14 @@ export function setAudioOutputDevice(transport: Object, label: string, id: strin
  * @returns {Promise}
  */
 function _setDevice(transport: Object, device) {
-    return transport.sendRequest({
-        type: 'devices',
-        name: 'setDevice',
-        device
-    });
+    // return transport.sendRequest({
+    //     type: 'devices',
+    //     name: 'setDevice',
+    //     device
+    // });
+
+    // do nothing
+    return {};
 }
 
 /**
