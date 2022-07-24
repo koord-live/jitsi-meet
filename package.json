@@ -78,7 +78,7 @@
     "jquery-i18next": "1.2.1",
     "js-md5": "0.6.1",
     "jwt-decode": "2.2.0",
-    "lib-jitsi-meet": "koord-live/lib-jitsi-meet:kdev_f3a2f61e",
+    "lib-jitsi-meet": "koord-live/lib-jitsi-meet#95aa2453d138f2d99f087795728cbbb4887d13c1",
     "lodash": "4.17.21",
     "moment": "2.29.2",
     "moment-duration-format": "2.2.2",
