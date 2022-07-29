@@ -73,7 +73,8 @@ const ThumbnailBottomIndicators = ({
     isVirtualScreenshareParticipant,
     local,
     participantId,
-    showStatusIndicators = true,
+    // showStatusIndicators = true,
+    showStatusIndicators = false,
     thumbnailType
 }: Props) => {
     const styles = useStyles();
