@@ -73,7 +73,9 @@ export function isSuboptimalBrowser() {
     const optimalBrowsers
         = interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS;
 
-    return !_isCurrentBrowserInList(optimalBrowsers) && isSupportedBrowser();
+    // We control browser via QtWebView / QtWebEngineView - no need for checks
+    // return !_isCurrentBrowserInList(optimalBrowsers) && isSupportedBrowser();
+    return false;
 }
 
 /**
@@ -83,18 +85,20 @@ export function isSuboptimalBrowser() {
  * @returns {boolean}
  */
 export function isSupportedBrowser() {
-    if (navigator.product === 'ReactNative') {
-        return false;
-    }
+    // We control browser via QtWebView / QtWebEngineView - no need for checks
+    // if (navigator.product === 'ReactNative') {
+    //     return false;
+    // }
 
-    // Blacklists apply to desktop browsers only right now.
-    if (!isMobileBrowser() && _isCurrentBrowserInList(
-        interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
-    )) {
-        return false;
-    }
+    // // Blacklists apply to desktop browsers only right now.
+    // if (!isMobileBrowser() && _isCurrentBrowserInList(
+    //     interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
+    // )) {
+    //     return false;
+    // }
 
-    return isMobileBrowser() ? isSupportedMobileBrowser() : JitsiMeetJS.isWebRtcSupported();
+    // return isMobileBrowser() ? isSupportedMobileBrowser() : JitsiMeetJS.isWebRtcSupported();
+    return true;
 }
 
 /**
@@ -104,8 +108,11 @@ export function isSupportedBrowser() {
  * @returns {boolean}
  */
 export function isSupportedMobileBrowser() {
-    return (Platform.OS === 'android' && browser.isSupportedAndroidBrowser())
-        || (Platform.OS === 'ios' && browser.isSupportedIOSBrowser());
+    // We control browser via QtWebView / QtWebEngineView - no need for checks
+
+    // return (Platform.OS === 'android' && browser.isSupportedAndroidBrowser())
+    //     || (Platform.OS === 'ios' && browser.isSupportedIOSBrowser());
+    return true;
 }
 
 /**
