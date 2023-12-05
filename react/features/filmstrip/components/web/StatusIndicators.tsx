@@ -113,9 +113,12 @@ function _mapStateToProps(state: IReduxState, ownProps: any) {
     const { disableModeratorIndicator } = state['features/base/config'];
 
     return {
-        _showAudioMutedIndicator: isAudioMuted && audio,
-        _showModeratorIndicator:
-            !disableModeratorIndicator && participant && participant.role === PARTICIPANT_ROLE.MODERATOR && moderator,
+        // KoordHack: don't show audio mute or moderator indicators ...
+        // _showAudioMutedIndicator: isAudioMuted && audio,
+        _showAudioMutedIndicator: false,
+        // _showModeratorIndicator:
+        //     !disableModeratorIndicator && participant && participant.role === PARTICIPANT_ROLE.MODERATOR && moderator,
+        _showModeratorIndicator: false,
         _showScreenShareIndicator: isScreenSharing && screenshare
     };
 }
