@@ -25,6 +25,10 @@ const browserNameToCheck = {
     webkit: browser.isWebKitBased.bind(browser)
 };
 
+// kdedit - We control browser via QtWebView / QtWebEngineView - no need for checks
+// Hard-code all the returns! :)
+
+
 /**
  * Returns whether or not jitsi is optimized and targeted for the  provided
  * browser name.
@@ -33,8 +37,9 @@ const browserNameToCheck = {
  * @returns {boolean}
  */
 export function isBrowsersOptimal(browserName: string) {
-    return (interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS)
-        .includes(browserName);
+    // return (interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS)
+    //     .includes(browserName);
+    return true;
 }
 
 /**
@@ -66,10 +71,11 @@ export function isWindows() {
  * @returns {boolean}
  */
 export function isSuboptimalBrowser() {
-    const optimalBrowsers
-        = interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS;
+    // const optimalBrowsers
+    //     = interfaceConfig.OPTIMAL_BROWSERS || DEFAULT_OPTIMAL_BROWSERS;
 
-    return !_isCurrentBrowserInList(optimalBrowsers) && isSupportedBrowser();
+    // return !_isCurrentBrowserInList(optimalBrowsers) && isSupportedBrowser();
+    return false;
 }
 
 /**
@@ -79,18 +85,19 @@ export function isSuboptimalBrowser() {
  * @returns {boolean}
  */
 export function isSupportedBrowser() {
-    if (navigator.product === 'ReactNative') {
-        return false;
-    }
+    // if (navigator.product === 'ReactNative') {
+    //     return false;
+    // }
 
-    // Blacklists apply to desktop browsers only right now.
-    if (!isMobileBrowser() && _isCurrentBrowserInList(
-        interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
-    )) {
-        return false;
-    }
+    // // Blacklists apply to desktop browsers only right now.
+    // if (!isMobileBrowser() && _isCurrentBrowserInList(
+    //     interfaceConfig.UNSUPPORTED_BROWSERS || DEFAULT_UNSUPPORTED_BROWSERS
+    // )) {
+    //     return false;
+    // }
 
-    return isMobileBrowser() ? isSupportedMobileBrowser() : JitsiMeetJS.isWebRtcSupported();
+    // return isMobileBrowser() ? isSupportedMobileBrowser() : JitsiMeetJS.isWebRtcSupported();
+    return true;
 }
 
 /**
@@ -100,8 +107,9 @@ export function isSupportedBrowser() {
  * @returns {boolean}
  */
 export function isSupportedMobileBrowser() {
-    return (Platform.OS === 'android' && browser.isSupportedAndroidBrowser())
-        || (Platform.OS === 'ios' && browser.isSupportedIOSBrowser());
+    // return (Platform.OS === 'android' && browser.isSupportedAndroidBrowser())
+    //     || (Platform.OS === 'ios' && browser.isSupportedIOSBrowser());
+    return true;
 }
 
 /**
@@ -113,10 +121,10 @@ export function isSupportedMobileBrowser() {
  * @private
  * @returns {boolean}
  */
-function _isCurrentBrowserInList(list: string[]) {
-    return Boolean(list.find(browserName => {
-        const checkFunction = browserNameToCheck[browserName as keyof typeof browserNameToCheck];
+// function _isCurrentBrowserInList(list: string[]) {
+//     return Boolean(list.find(browserName => {
+//         const checkFunction = browserNameToCheck[browserName as keyof typeof browserNameToCheck];
 
-        return checkFunction ? checkFunction.call(browser) : false;
-    }));
-}
+//         return checkFunction ? checkFunction.call(browser) : false;
+//     }));
+// }
